@@ -1,0 +1,38 @@
+Method 1-> Brute Force
+
+void rotate(vector<vector<int>>& matrix) {
+        int n=matrix.size();
+         vector<vector<int>> result;
+        
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                result[j][n-1-i]=matrix[i][j];
+            }
+        }
+    }
+  
+  TC->O(N^2)
+  SC->O(N^2)
+  
+  Method 2-> Optimal Method
+  
+  #include<vector>
+#include<bits/stdc++.h>
+
+void rotateMatrix(vector<vector<int>> &mat){
+	// Write your code here.
+	int N=mat.size();
+	for(int i=0;i<N;i++){
+		for(int j=0;j<i;j++){
+			swap(mat[i][j],mat[j][i]);
+		}
+	}
+
+	for(int i=0;i<N;i++){
+		reverse(mat[i].begin(),mat[i].end());
+	}
+}
+
+TC->O(N^2)
+SC->O(1)
+  
